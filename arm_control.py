@@ -9,20 +9,20 @@ physicsClient = p.connect(p.GUI)
 #####  Load_cube
 def loadCube_B(x, y):
     cubeBStartPos = [x, y, 0.635]
-    cubeId = p.loadURDF("../cube/cube_B.urdf", cubeBStartPos, globalScaling=0.5)
+    cubeId = p.loadURDF("/KUKA-NiaPy/Nia-master/cube/cube_B.urdf", cubeBStartPos, globalScaling=0.5)
 def loadCube_R(x, y):
     cubeRStartPos = [x, y, 0.635]
-    cube2Id = p.loadURDF("../cube/cube_R.urdf", cubeRStartPos, globalScaling=0.5)
+    cube2Id = p.loadURDF("/KUKA-NiaPy/Nia-master/cube/cube_R.urdf", cubeRStartPos, globalScaling=0.5)
 def loadCube_G(x, y):
     cubeGStartPos = [x, y, 0.635]
-    cube3Id = p.loadURDF("../cube/cube_G.urdf", cubeGStartPos, globalScaling=0.5)
+    cube3Id = p.loadURDF("/KUKA-NiaPy/Nia-master/cube/cube_G.urdf", cubeGStartPos, globalScaling=0.5)
 def reset():
     global robotId
     p.resetSimulation()
     p.setAdditionalSearchPath(pybullet_data.getDataPath())
     p.setGravity(0, 0, -10)
     planeId = p.loadURDF("plane.urdf")
-    robotId = p.loadSDF("../kuka_iiwa/kuka_with_gripper.sdf")[0]
+    robotId = p.loadSDF("/KUKA-NiaPy/Nia-master/kuka_iiwa/kuka_with_gripper.sdf")[0]
     robotStartPos = [0, 0, 0.695]
     robotStartOrientation = p.getQuaternionFromEuler([0, 0, 0])
     p.resetBasePositionAndOrientation(robotId, robotStartPos, robotStartOrientation)
@@ -33,15 +33,15 @@ def reset():
     trayStartPos = [0.96, -0.28, 0.63]
     tray2StartPos = [0.96, 0.28, 0.63]
     tray3StartPos = [0.96, 0, 0.63]
-    trayId = p.loadURDF("../tray/trayboxB.urdf", trayStartPos,
+    trayId = p.loadURDF("/KUKA-NiaPy/Nia-master/tray/trayboxB.urdf", trayStartPos,
                         globalScaling=0.4)
-    trayId2 = p.loadURDF("../tray/trayboxR.urdf", tray2StartPos,
+    trayId2 = p.loadURDF("/KUKA-NiaPy/Nia-master/tray/trayboxR.urdf", tray2StartPos,
                          globalScaling=0.4)
-    trayId3 = p.loadURDF("../tray/trayboxG.urdf", tray3StartPos,
+    trayId3 = p.loadURDF("/KUKA-NiaPy/Nia-master/tray/trayboxG.urdf", tray3StartPos,
                          globalScaling=0.4)
 
     tableStartPos = [0.7, 0, 0]
-    tableId = p.loadURDF("../table/table.urdf",
+    tableId = p.loadURDF("/KUKA-NiaPy/Nia-master/table/table.urdf",
                          tableStartPos)
     loadCube_R(0.76, 0)
     loadCube_R(0.65, 0.28)
@@ -165,6 +165,8 @@ def move(str):
     list_processTime.append(processTime)
     list_processTime = sorted(list_processTime)
     return processTime, list_processTime
+
+# test
 # Select_list = sort_list([5,6,7,8,9,4,3,20,100])
 # Select_list = sort_list([8,7,6,5,4,3,2,1,9])
 # t, tl = move(Select_list)

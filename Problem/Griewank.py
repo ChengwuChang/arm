@@ -4,7 +4,7 @@
 
 from niapy.problems.problem import Problem
 from Problem.fitness_process import save
-from Arm.cylinder1 import move, sort_list
+from arm_control import move, sort_list
 import random
 
 __all__ = ['Griewank']
